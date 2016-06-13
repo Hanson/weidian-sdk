@@ -46,7 +46,7 @@ class ItemService implements Service
     {
         return [
             'public' => [
-                'method' => self::$methodPrefix . 'get',
+                'method' => self::$methodPrefix . 'list.get',
                 'version' => $version
             ],
             'param' => json_encode($data),

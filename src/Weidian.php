@@ -117,6 +117,6 @@ class Weidian
 
     public function getExpireIn()
     {
-        return $this->getExpireIn();
+        return $this->expireIn;
     }
 }
