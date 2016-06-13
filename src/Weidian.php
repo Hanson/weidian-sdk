@@ -22,6 +22,8 @@ class Weidian
 
     private $accessToken;
 
+    private $expireIn;
+
     public static $apiUrl = 'https://api.vdian.com/api';
 
     public static $tokenUrl = 'https://api.vdian.com/token';
@@ -51,7 +53,7 @@ class Weidian
     }
 
 
-    private function getAccessToken()
+    public function getAccessToken()
     {
         if($this->accessToken){
             return $this->accessToken;
@@ -65,6 +67,8 @@ class Weidian
 
         if ($response['status']['status_code'] != 0)
             throw new \Exception('获取token错误,' . $response['status']['status_reason']);
+
+        $this->expireIn = $response['result']['expire_in'];
 
         return $this->accessToken = $response['result']['access_token'];
     }
@@ -89,15 +93,17 @@ class Weidian
 
         if($code = $response['status']['status_code'] != 0){
 //            if($code == '10013'){
+//                echo $this->accessToken.'<br>';
 //                $this->recreateAccessToken();
-////                echo $this->accessToken;exit();
-////                $this->send($param);
+//                echo $this->accessToken.'<br>';
+//////                echo $this->accessToken;exit();
+//                $this->send($param);
 //            }else{
                 throw new RequestException('请求失败,error code:' . $response['status']['status_code'] . ',失败原因:' . $response['status']['status_reason']);
 //            }
         }
 
-        return $response['result'];
+        return $response;
     }
 
 
@@ -106,5 +112,11 @@ class Weidian
         $public['access_token'] = $this->accessToken;
         $public['format'] = 'json';
         return json_encode($public);
+    }
+
+
+    public function getExpireIn()
+    {
+        return $this->getExpireIn();
     }
 }
