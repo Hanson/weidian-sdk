@@ -1,0 +1,18 @@
+{
+    "name": "hanccc/weidian",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hanson",
+            "email": "h@hanc.cc"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hanccc\\": "src/"
+        }
+    }
+}
