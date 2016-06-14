@@ -42,7 +42,7 @@ class ItemService implements Service
     }
 
 
-    public static function listItem($data = [], $version = '1.0')
+    public static function listItem($data, $version = '1.0')
     {
         return [
             'public' => [

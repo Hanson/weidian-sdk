@@ -103,7 +103,7 @@ class Weidian
 //            }
         }
 
-        return $response;
+        return $response['result'];
     }
 
 
