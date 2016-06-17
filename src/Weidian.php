@@ -31,7 +31,7 @@ class Weidian
 
     public function __construct($appKey, $secret, $accessToken = null)
     {
-        if(!$appKey || !$secret)
+        if (!$appKey || !$secret)
             throw new \Exception('appkey 和 secret不能为空!');
 
         $this->client = new Client();
@@ -40,7 +40,7 @@ class Weidian
         $this->secret = $secret;
         $this->accessToken = $accessToken;
 
-        if(!$accessToken){
+        if (!$accessToken) {
             $this->getAccessToken();
         }
     }
@@ -55,7 +55,7 @@ class Weidian
 
     public function getAccessToken()
     {
-        if($this->accessToken){
+        if ($this->accessToken) {
             return $this->accessToken;
         }
 
@@ -91,16 +91,8 @@ class Weidian
 
         $response = $this->request('post', self::$apiUrl, $query, true);
 
-        if($code = $response['status']['status_code'] != 0){
-//            if($code == '10013'){
-//                echo $this->accessToken.'<br>';
-//                $this->recreateAccessToken();
-//                echo $this->accessToken.'<br>';
-//////                echo $this->accessToken;exit();
-//                $this->send($param);
-//            }else{
-                throw new RequestException('请求失败,error code:' . $response['status']['status_code'] . ',失败原因:' . $response['status']['status_reason']);
-//            }
+        if ($code = $response['status']['status_code'] != 0) {
+            throw new RequestException('请求失败,error code:' . $response['status']['status_code'] . ',失败原因:' . $response['status']['status_reason']);
         }
 
         return $response['result'];
