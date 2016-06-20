@@ -12,12 +12,20 @@ composer require hanccc/weidian
 
 ```
 $weidian = new Hanccc/Weidian('appkey', 'secret');
+//$weidian = new Hanccc/Weidian('appkey', 'secret', 'access_token');
 
 //上架举例
 
 $data = ['itemid' => 'itemid', 'opt' => 1];
 
 $weidian->send(Hanccc\Services\ItemService::itemOnSale($data));
+```
+
+### Notice
+
+文档有版本号限制,此包版本为 2016-6-20 的版本, 如有变动可手动设置版本号或提交issue通知本人变更
+```
+$weidian->send(Hanccc\Services\ItemService::itemOnSale($data, '1.0.1'));
 ```
 
 ### Document
