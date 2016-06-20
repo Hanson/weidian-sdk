@@ -38,18 +38,7 @@ class Weidian
 
         $this->appKey = $appKey;
         $this->secret = $secret;
-        $this->accessToken = $accessToken;
-
-        if (!$accessToken) {
-            $this->getAccessToken();
-        }
-    }
-
-
-    public function recreateAccessToken()
-    {
-        $this->accessToken = null;
-        $this->getAccessToken();
+        $this->accessToken = $accessToken ? : $this->getNewAccessToken();
     }
 
 
@@ -59,6 +48,12 @@ class Weidian
             return $this->accessToken;
         }
 
+        return $this->getNewAccessToken();
+    }
+
+
+    public function getNewAccessToken()
+    {
         $response = $this->request('get', self::$tokenUrl, [
             'grant_type' => 'client_credential',
             'appkey' => $this->appKey,
