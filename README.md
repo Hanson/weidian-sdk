@@ -74,6 +74,8 @@ Hanccc\Services\ItemService::itemSetTop($data)
 Hanccc\Services\ItemService::itemCancelTop($data)
 
 Hanccc\Services\ItemService::delDiscountItem($data)
+
+Hanccc\Services\ItemService::getCateList($data)
 ```
 
 ### 订单API
