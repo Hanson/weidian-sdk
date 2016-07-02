@@ -256,4 +256,16 @@ class ItemService implements Service
             'param' => json_encode($data),
         ];
     }
+
+
+    public static function getCateList($data, $version = '1.0')
+    {
+        return [
+            'public' => [
+                'method' => 'weidian.cate.get.list',
+                'version' => $version
+            ],
+            'param' => json_encode($data),
+        ];
+    }
 }
