@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-composer require hanccc/weidian
+composer require hanson/weidian
 ```
 
 ## Usage
