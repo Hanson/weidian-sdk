@@ -1,5 +1,5 @@
 {
-    "name": "hanccc/weidian",
+    "name": "hanson/weidian",
     "require": {
         "guzzlehttp/guzzle": "^6.2"
     },
