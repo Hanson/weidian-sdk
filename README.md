@@ -1,4 +1,4 @@
-# weidian-api
+# weidian-sdk
 
 微店的API接口包
 
